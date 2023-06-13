@@ -1,0 +1,14 @@
+[project]
+name = "qiu_store"
+version = "0.1.0"
+description = "test"
+readme = "README.md"
+requires-python = ">=3.8, <4.0"
+
+[tool.nonebot]
+adapters = [
+    { name = "QQ 频道", module_name = "nonebot.adapters.qqguild" }
+]
+plugins = []
+plugin_dirs = ["src/plugins"]
+builtin_plugins = []

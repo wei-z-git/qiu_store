@@ -1,0 +1,11 @@
+accounts
+.vscode
+config
+.env-test
+__pycache__
+.DS_Store
+
+Changelog.md
+README.md
+.gitlab-ci.yml
+
