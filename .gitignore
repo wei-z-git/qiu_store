@@ -6,5 +6,4 @@ nonebot-plugin-gpt3/*
 __pycache__
 .DS_Store
 data
-.env
 .vscode
