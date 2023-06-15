@@ -10,7 +10,7 @@ workflow:
 variables:
   DOCKER_OPTS: "--registry-mirror=https://ocmrva74.mirror.aliyuncs.com"
 # Use the official docker image.
-image: docker:20.10.16
+image: ubuntu:latest
 services:
   - docker:20.10.16-dind
 before_script:
