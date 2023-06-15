@@ -10,7 +10,7 @@ workflow:
 variables:
   DOCKER_OPTS: "--registry-mirror=https://ocmrva74.mirror.aliyuncs.com"
 # Use the official docker image.
-image: ubuntu:latest
+image: docker:20.10.16
 services:
   - docker:20.10.16-dind
 before_script:
@@ -37,5 +37,6 @@ Release:
 
 Deploy:
   stage: deploy
+  image: ubuntu:latest
   script: 
     - echo -n 'POSTtat.api.qcloud.com/v2/index.php?Action=DescribeInvokers&Nonce=1371&Region=ap-shanghai&SecretId=$TCLOUD_SECRET_ID&SignatureMethod=HmacSHA1&Timestamp=1686792101' | openssl dgst -hmac '$TCLOUD_SECRET_KEY' -sha1 -binary | base64
