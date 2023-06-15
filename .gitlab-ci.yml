@@ -1,6 +1,7 @@
 stages:
   - build-latest
   - build-release
+  - deploy
 
 workflow:
   rules:
