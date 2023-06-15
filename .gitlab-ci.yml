@@ -33,3 +33,8 @@ Release:
     - docker push  $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG
   rules:
     - if: $CI_COMMIT_TAG
+
+Deploy:
+  stage: deploy
+  script: 
+    - echo -n 'POSTtat.api.qcloud.com/v2/index.php?Action=DescribeInvokers&Nonce=1371&Region=ap-shanghai&SecretId=$TCLOUD_SECRET_ID&SignatureMethod=HmacSHA1&Timestamp=1686792101' | openssl dgst -hmac '$TCLOUD_SECRET_KEY' -sha1 -binary | base64
