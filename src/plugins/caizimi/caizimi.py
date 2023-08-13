@@ -2,19 +2,14 @@
 猜字谜，用来过审
 """
 
-from nonebot import on_command, get_bot
+from nonebot import on_command
 from nonebot.adapters import Message, Bot
 from nonebot.matcher import Matcher
 from nonebot.adapters.qqguild import Bot
-from nonebot.adapters.qqguild.event import AtMessageCreateEvent
 
 
-from nonebot.params import CommandArg, Arg, ArgPlainText
-from nonebot.permission import SUPERUSER
-from nonebot.log import logger
-from nonebot.exception import ActionFailed
+from nonebot.params import Arg, ArgPlainText
 from nonebot.rule import to_me
-import random
 
 
 question = "题目：一只狗，两个口，谁遇它谁发愁。猜一字"
@@ -32,3 +27,4 @@ async def call_robot(bot: Bot, matcher: Matcher, option: Message = Arg(), answer
             await matcher_caizimi.finish(f"游戏结束")
         case _:
             await matcher.reject("答案错误！")
+
