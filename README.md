@@ -33,7 +33,7 @@ docker run -d --name [机器人name] \
 -e QQGUILD_IS_SANDBOX="false" \
 -e AIFADIAN_USER_ID="xxx" \
 -e AIFADIAN_TOKEN="xxx" \
--e GOODS_SECRETS_URL="xxx"
+-e GOODS_SECRETS_URL="xxx" \
 -v /tmp/data:/app/data \
 -p 8083:80 \
 registry.jihulab.com/nonebot2-wei-z/qiu_store:latest
