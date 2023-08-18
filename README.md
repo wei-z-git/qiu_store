@@ -23,3 +23,15 @@
 - [x] 下单地址格式化
 ## Configs
 .env
+
+## 启动
+```
+docker run -d --name [机器人name] \ 
+-e HOST="0.0.0.0" \
+-e PORT="80" \
+-e QQGUILD_BOTS="[ { \"id\": \"xxx\", \"token\": \"xxx\", \"secret\": \"xxx\", \"intent\": { \"guild_messages\": true, \"at_messages\": false,\"direct_message\":true } } ]" \
+-e QQGUILD_IS_SANDBOX="false" \
+-v /tmp/data:/app/data \
+-p 8083:80 \
+registry.jihulab.com/nonebot2-wei-z/qiu_store:latest
+```
