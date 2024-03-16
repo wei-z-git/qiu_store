@@ -1,4 +1,4 @@
-nonebot2[fastapi,httpx,websockets]==2.0.0rc3
-nonebot-adapter-qqguild==0.2.2
+nonebot2[fastapi,httpx,websockets]==2.2.1
+nonebot-adapter-qq==1.4.2
 qrcode
 Pillow
