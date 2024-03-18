@@ -17,8 +17,7 @@ image = Image.open(image_path)
 
 # you can also pass username, password to the WebUIApi constructor.
 result2 = api.img2img(images=[image], prompt="cute cat", seed="-1", cfg_scale=6.5, denoising_strength=0.6)
-result2.image
-pil_image = Image.open(result2.image)
-
+x=result2.image
+x.show()
 # Display the image
-pil_image.show()
+# pil_image.show()

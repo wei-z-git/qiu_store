@@ -1,7 +1,7 @@
 import nonebot
 
 from . import (
-    store,
+    styler,
 )
 
 """

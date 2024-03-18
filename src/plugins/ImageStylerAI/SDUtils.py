@@ -1,28 +1,43 @@
 from typing import Dict
+from PIL import Image
 import httpx
 import hashlib
 import time
 import json
-import qrcode
+import base64
 from io import BytesIO
 
 
 class SDUtils:
-    def __init__(self, token: str, user_id: str):
-        self.token = token
-        self.user_id = user_id
-        self.ts = str(int(time.time()))
-        self.host = "https://afdian.net/api"
+    def __init__(self):
+        self.host = "http://127.0.0.1:7860"
 
-    async def img_to_tags(self, img) -> list:
-        path = "/open/query-order"
+
+    async def img2tags(self, img) -> list:
+        api="/tagger/v1/interrogate"
+        url=self.host+api
+        image_path = 'D:/AI/images/1.jpg'
+        model = 'wd-v1-4-moat-tagger.v2'
+        threshold = 0.35
+        image = Image.open(image_path)
+        with open(image_path, 'rb') as file:
+            image_data = file.read()
+            base64_image = base64.b64encode(image_data).decode('utf-8')
+        data = {
+            "image": base64_image,
+            "model": model,
+            "threshold": threshold
+        }
+        response = httpx.post(url, json=data)
+        if response.status_code == 200: 
+            json_data = response.json()
+            caption_dict = list(json_data['caption']['tag'].keys())
+            print(caption_dict)
+
+        else:
+            print('Error:', response.status_code)
+            print('Response body:', response.text)
         
-        request_params = {"params": params,
-                          "user_id": self.user_id, "ts": self.ts, "sign": sign}
-        response = httpx.get(self.host+path, params=request_params)
-        plan_meta = json.loads(response.text)['data']['list']
-        return plan_meta
-
     @staticmethod
     async def generate_QRcode(plan_id) -> bytes:
         '''
