@@ -3,7 +3,7 @@ from nonebot.adapters.qqguild import Adapter as qqguild_Adapter
 
 
 
-nonebot.init(driver="~fastapi+~httpx+~websockets")
+nonebot.init(driver="~fastapi+~httpx+~websockets",command_start={"", ""})
 
 driver = nonebot.get_driver()
 driver.register_adapter(qqguild_Adapter)
